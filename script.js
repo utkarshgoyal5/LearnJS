@@ -1,3 +1,5 @@
+"use strict"
+
 console.log("Hello Coders");
 
 var score = 34;
@@ -158,11 +160,93 @@ console.log(car);
         age: 25,
         city: 'Aligarh',
         birthyear: 1998,
-        getSummary: () => {
+        getSummary: function(){
             return `${this.name} whose age is ${this.age} lives in ${this.city} and his birth year is ${this.birthyear}`;
         } 
     }
 
     console.log(`summary : ${secondPerson.getSummary()}`);
 
+    //Note: one thing I observed we cannot use this keyword with arrow function in an abject
 
+/**************************************************************************************************************************/
+
+
+// USE OF FOR-EACH
+    //It is a special type of for loop method applied on arrayin which we can pass another function to iterate over elements
+
+    let i = 1;
+
+    let bloackedList = [
+        {
+            name: 'Sam',
+            reason: 'Abusive content',
+        },
+        {
+            name: 'Rohan',
+            reason: 'Abusive content',
+        }
+    ]
+
+    bloackedList.forEach((element) => {
+        element.id = i;
+        i = i+1;
+    } )
+
+    console.log(`bloackedList : ${JSON.stringify(bloackedList)}`);
+
+    
+/**************************************************************************************************************************/
+
+
+//CALL APPLY AND BIND
+
+    //call and apply method
+
+    let mainPlane = {
+        airline: 'Fly India',
+        iatacode: 'F1',
+        bookings: [],
+        book: function(flightNum, name){
+            console.log(`${name} Booked flight on ${this.airline} with flight number: ${flightNum}`);
+            this.bookings.push({flight: `${this.airline}`, name: `${name}`});
+        }
+    }
+
+    mainPlane.book(553, 'Carlos');
+    mainPlane.book(643, 'Jack');
+
+    console.log(`mainPlane : ${JSON.stringify(mainPlane)}`);
+
+    //Now if we want to use book method for any other abject then we can use call
+    //If we use this method directly then it can't determine the use of this keyword
+
+    let childPlane = {
+        airline: 'Fly India',
+        iatacode: 'F1',
+        bookings: [],
+    }
+
+    //here we assign object book method to variable
+    let book = mainPlane.book;
+    book.call(childPlane, 689, 'Zake');
+    console.log(`childPlane : ${JSON.stringify(childPlane)}`);
+
+    //apply is also same as call but here we pass arguments in array and now days it is not that useful
+    book.apply(childPlane, [786, 'June']);
+    console.log(`childPlane : ${JSON.stringify(childPlane)}`);
+
+    //when method is not in object then we use bind function to bind object and function
+    let greet = function greet(){
+        console.log(`Welcome ${this.firstname} ${this.lastname} !`);
+    }
+
+    let user = {
+        firstname: 'Utkarsh',
+        lastname: 'Goyal',
+    }
+
+    let greets = greet.bind(user);
+    greets();
+
+/**************************************************************************************************************************/
