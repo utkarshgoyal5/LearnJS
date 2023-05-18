@@ -250,3 +250,43 @@ console.log(car);
     greets();
 
 /**************************************************************************************************************************/
+
+//OBJECT/ARRAY PASS BY REFERENCE AND PASS BY VALUE
+
+    //by ref
+    let arr = [1,2,3,4,5];
+
+    let getRef = arr;
+
+    arr[5] = 6;
+    //both are changing
+    console.log(`original array: ${arr}`);
+    console.log(`getRef array: ${getRef}`);
+    console.log(`****************`);
+
+    let getVal = [...arr];
+
+    arr[6] = 7;
+    //single array changed
+    console.log(`original array: ${arr}`);
+    console.log(`getVal array: ${getVal}`);
+
+/**************************************************************************************************************************/
+
+//FOR-IN LOOP TO ITERATE OVER OBJECT
+
+    let newCar = {
+        color: 'black',
+        model: '2023',
+        company: 'Honda'
+    }
+
+    let val = '';
+    for(let key in newCar) {
+        val = newCar[key];
+        console.log(`key : ${key}, val: ${val}`);
+    }
+
+ /**************************************************************************************************************************/
+
+
