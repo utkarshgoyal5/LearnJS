@@ -132,3 +132,37 @@ console.log(car);
     let result = delete obj.prop1;
 
     console.log(`${JSON.stringify(obj)} & deleted result : ${result}`);
+
+
+/**************************************************************************************************************************/
+
+//FUNCTION AND METHODS DIFFERENCE
+
+    //Methods -> when function is declared withen object and behave as prop of object then it is called method
+
+    let person = {
+
+        ageCalculate : function(birthyear = 2008) {
+            let age = 2023 - birthyear;
+            return age;
+        }
+
+    }
+
+    console.log(`current age is : ${person.ageCalculate(1998)}`);
+
+    //use of this keyword -> can access it own property
+
+    let secondPerson = {
+        name: 'Utkarsh Goyal',
+        age: 25,
+        city: 'Aligarh',
+        birthyear: 1998,
+        getSummary: () => {
+            return `${this.name} whose age is ${this.age} lives in ${this.city} and his birth year is ${this.birthyear}`;
+        } 
+    }
+
+    console.log(`summary : ${secondPerson.getSummary()}`);
+
+
