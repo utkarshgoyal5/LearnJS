@@ -1,12 +1,5 @@
 "use strict"
 
-console.log("Hello Coders");
-
-var score = 34;
-
-console.log(`score: ${score}`);
-
-
 /**************************************************************************************************************************/
 
 
@@ -173,7 +166,7 @@ console.log(car);
 
 
 // USE OF FOR-EACH
-    //It is a special type of for loop method applied on arrayin which we can pass another function to iterate over elements
+    //It is a special type of for loop method applied on array in which we can pass another function to iterate over elements
 
     let i = 1;
 
@@ -236,7 +229,7 @@ console.log(car);
     book.apply(childPlane, [786, 'June']);
     console.log(`childPlane : ${JSON.stringify(childPlane)}`);
 
-    //when method is not in object then we use bind function to bind object and function
+    //bind function is used to bind the method with object unlike call which is single time use bind can be stored for future use
     let greet = function greet(){
         console.log(`Welcome ${this.firstname} ${this.lastname} !`);
     }
@@ -247,7 +240,7 @@ console.log(car);
     }
 
     let greets = greet.bind(user);
-    greets();
+    greets(); //so new this can be used anywhere unlike call where we have to pass function explicitly
 
 /**************************************************************************************************************************/
 
@@ -270,6 +263,8 @@ console.log(car);
     //single array changed
     console.log(`original array: ${arr}`);
     console.log(`getVal array: ${getVal}`);
+
+    //for object it can be like {...obj}
 
 /**************************************************************************************************************************/
 
