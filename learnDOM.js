@@ -44,7 +44,7 @@
         heading.style.color = 'red';
         heading.style.backgroundColor = 'yellow';
 
-    // Add, rempve, replace class of element
+    // Add, remove, replace class of element
 
         heading.classList.add('newClass');
         heading.classList.remove('oldClass');
@@ -68,3 +68,37 @@
 
         //parent
         console.log(heading.parentElement);
+
+    //Event Listner
+
+            let performEvent = document.querySelector('.leranEvent');
+
+            performEvent.addEventListener('click', function() {
+                console.log('button clicked');
+            })
+
+            let elements = document.querySelectorAll('li');
+
+            elements.forEach(function(element) {
+                element.addEventListener('click', (e) => {
+
+                    //here e is an event object providing all the info regarding that event like position of click, target value etc
+                        // console.log(e.target);
+                        // e.target.style.textDecoration = 'line-through';
+                        e.target.remove();
+                })
+            })
+
+            //create 
+
+            let ul = document.querySelector('ul');
+
+            let button = document.querySelector('button');
+            button.addEventListener('click', () => {
+                let li = document.createElement('li');
+                li.textContent = 'something new';
+                ul.append(li); 
+                // ul.prepend(li); //to add at top
+            })
+            
+

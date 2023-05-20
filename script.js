@@ -285,3 +285,44 @@ console.log(car);
  /**************************************************************************************************************************/
 
 
+//ARRAYS
+
+    let letters = ['a', 'b', 'c', 'd'];
+
+    //This method is mutating which means it also change the original array
+    let reverse = letters.reverse();
+    console.log(letters);
+    console.log(reverse);
+
+    //other non mutated methods
+        let nums = [1,2,3,4,5,6];
+        let concat = nums.concat(letters);
+        let concat2 = [...nums, ...letters]; // new ES6 smart method
+        console.log(concat2);
+        let joined = letters.join('+'); // convert into string
+        console.log(joined);
+
+        //slice -> can cut array
+        let sliced = nums.slice(1,4);
+        console.log('original array: ' + nums);
+        console.log('extraced array: ' + sliced);
+
+    //other mutated methods
+
+        //splice ->to cut or add new elements in array
+            //sytntex -> Array.splice(index, deleteValue, valueToBeAdded)
+        
+        let newArr = nums.splice(1,2,1)
+        console.log('original array: ' + nums);
+        console.log('returned element array: ' + newArr);
+
+    //at method -> similar of index but here we can call -ve index which moves in revers order so in the eg of nums if I give -1 them it will fetch last index
+    console.log(nums.at(0));
+    console.log(nums.at(-1));
+    //Can also be used with string
+    let name = 'utkarsh';
+    console.log(name.at(-1));
+
+
+
+
